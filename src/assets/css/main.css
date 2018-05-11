@@ -1,0 +1,111 @@
+.dual-list .list-group {
+    margin-top: 8px;
+}
+
+.list-left li, .list-right li {
+    cursor: pointer;
+}
+
+.list-arrows {
+    padding-top: 100px;
+}
+
+.list-arrows button {
+    margin-bottom: 20px;
+}
+.dropdown-menu {
+  top: 0;
+}
+.table-responsive-fix-height {
+  overflow-y:scroll;
+  height:200px;
+}
+.table-fix-height2 {
+  overflow-y:scroll;
+  max-height:200px;
+}
+.table-fix-height4 {
+  overflow-y:scroll;
+  height:400px;
+}
+.table-fix-height6 {
+  overflow-y:scroll;
+  max-height:600px;
+}
+.mymenu{
+  position:relative;
+  top:0px;
+  height:40px;
+  z-index:10;
+}
+.modal {
+  background-color: rgba(15, 15, 15, 0.59);
+}
+.box{
+  background-color:#e0e0f0 ;
+  margin-top: 8px;
+}
+.subtitle{
+  font-size: medium;
+}
+.boxitem{
+  dispaly: webkit-box;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+}
+.boxborder{
+  background:#E7E7E7;
+  border-radius: 10px;
+  border:1px solid grey;
+  align-items:stretch;
+}
+.blacktext{
+  color: #000;
+  text-transform:capitalize;
+}
+.greytext{
+  color: grey;
+  text-transform:capitalize;
+}
+.title{
+  color: #000;
+  font-size: 1.2em;
+  text-transform:capitalize;
+}
+.myred{
+  background:darkred;
+}
+.mynavheight{
+  height: 45px;
+}
+.mygreydiv{
+  background: #808080;
+  color: #fff;
+  font-size: 1.0em;
+}
+a:link{
+  color:#000000;
+}
+a:visited{
+  color:#ffffff;
+}
+a:hover{
+  color:#006600;
+}
+a:active{
+  color:#006600;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+.gridStyle {
+  border: 1px solid rgb(212,212,212);
+  width: 500px;
+  height: 300px;
+}

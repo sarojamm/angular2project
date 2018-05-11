@@ -1,0 +1,162 @@
+<div class="col-sm-12    "  >
+  <app-navheader  [titlepage]="pagetitle" [subtitlepage]="subpagetitle"  ></app-navheader>
+</div>
+<div class="col-sm-12 "  ><p> &nbsp;&nbsp;&nbsp;</p><p>  &nbsp;&nbsp;&nbsp; </p></div>
+<div class="col-sm-12 "  ><h1>Manage Task Sets  {{message}}</h1></div>
+<!--Select tasksets-->
+<div class="col-sm-12  boxborder  boxitem    "  >
+  <h3>Select TaskSet</h3>
+  <div class="  col-md-4 ">
+    <div class="   table-responsive-fix-height">
+      <table class="table table-striped table-hover table-condensed table-bordered  ">
+        <tr  *ngFor="let row of ctsds"   (click)="getAssiginedUserForTsdId(row)" > <td>{{row.tsdId}}-{{row.tsdNam}} </td></tr>
+      </table>
+    </div>
+
+  </div>
+  <div class="  col-md-4">
+    <div class="   table-responsive-fix-height">
+      <table class="table table-striped table-hover table-condensed table-bordered  ">
+        <tr ><td><button type="button" (click)="refreshtasks()" class="btn btn-info ">Refresh</button>  </td>   </tr>
+        <tr ><td><button type="button" (click)="deleteTaskSet()" class="btn btn-info ">Delete</button>  </td>   </tr>
+        <tr ><td>
+          <input id="tasksetname"  [(ngModel)]="tasksetname"  required placeholder=" Add New Task">
+          <button type="button" (click)="addNewTaskSet()" class="btn btn-info ">Add Task Set</button>  </td>   </tr>
+      </table>
+    </div>
+  </div>
+  <div class="  col-md-4">
+    <div class="   table-responsive-fix-height">
+      <table class="table table-striped table-hover table-condensed table-bordered  ">
+        <tr  *ngFor="let row of usersbyctsd"    > <td>{{row.tsdId}}-{{row.oun}} </td></tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+
+<!--Show Saved Items-->
+<div  [hidden]="!(selecteddivisions.length + selectedpads.length + selectedads.length+ selectedras.length +
+ selectedpis.length + selectedprojtasks.length) "
+      class="col-sm-12  boxborder  boxitem" >
+  <!--ng-if=" list.length > 0 "  >-->
+  <h3>Saved Items for {{selectedCafeTsd.tsdNam}} <small> #Tasks selected - {{selecteddivisions.length + selectedpads.length + selectedads.length+ selectedras.length +
+    selectedpis.length + selectedprojtasks.length}}</small></h3>
+  <div class=" table-fix-height2 ">
+    <table class="table table-striped table-hover table-condensed table-bordered ">
+      <tr  *ngFor="let row of selecteddivisions"  ><td>{{divtitle}} - {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}}- {{row.fltrTypId}}</td></tr>
+      <tr  *ngFor="let row of selectedprojtasks"   ><td>{{projtasktitle}} -{{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}} - {{row.fltrTypId}}</td></tr>
+      <tr  *ngFor="let row of selectedpads"   ><td> {{padtitle}}- {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}} - {{row.fltrTypId}}</td></tr>
+      <tr  *ngFor="let row of selectedads"   ><td> {{adtitle}}- {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}} - {{row.fltrTypId}}</td></tr>
+      <tr  *ngFor="let row of selectedras"   ><td>{{ratitle}} - {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}}- {{row.fltrTypId}}</td></tr>
+      <tr  *ngFor="let row of selectedpis"   ><td>{{pititle}} -{{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row.fltrId}}- {{row.fltrTypId}}</td></tr>
+    </table>
+  </div>
+  <div>
+    <!--<ul   class="list-group  " style="overflow-y: scroll; max-height: 300px">-->
+    <!--<li class="list-group-item" *ngFor="let row of selecteddivisions"  >{{divtitle}} - {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}}- {{row.fltrTypId}}</li>-->
+    <!--<li class="list-group-item" *ngFor="let row of selectedprojtasks"  >{{projtasktitle}} -{{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}} - {{row.fltrTypId}}</li>-->
+    <!--<li class="list-group-item" *ngFor="let row of selectedpads"  > {{padtitle}}- {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}} - {{row.fltrTypId}}</li>-->
+    <!--<li class="list-group-item" *ngFor="let row of selectedads"  > {{adtitle}}- {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}} - {{row.fltrTypId}}</li>-->
+    <!--<li class="list-group-item" *ngFor="let row of selectedras"  >{{ratitle}} - {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}}- {{row.fltrTypId}}</li>-->
+    <!--<li class="list-group-item" *ngFor="let row of selectedpis"  >{{pititle}} -{{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row.fltrId}}- {{row.fltrTypId}}</li>-->
+    <!--</ul>-->
+  </div>
+</div>
+<!--Show selected Items commented out-->
+<div>
+  <!--<div  [hidden]="!(projTasks.length + padTasks.length + divTasks.length+ adTasks.length + piTasks.length + raTasks.length) "-->
+  <!--class="col-sm-12  boxborder  boxitem" >-->
+  <!--&lt;!&ndash;ng-if=" list.length > 0 "  >&ndash;&gt;-->
+  <!--<h3>Selected Items<small> #Tasks selected - {{projTasks.length + padTasks.length + divTasks.length-->
+  <!--+ adTasks.length + piTasks.length + raTasks.length}}</small></h3>-->
+
+
+  <!--<div>-->
+  <!--<ul   class="list-group  " style="overflow-y: scroll; max-height: 300px">-->
+  <!--<li class="list-group-item" *ngFor="let row of divTasks"  >{{divtitle}} - {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}}- {{row.fltrTypId}}</li>-->
+  <!--<li class="list-group-item" *ngFor="let row of projTasks"  >{{projtasktitle}} -{{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}} - {{row.fltrTypId}}</li>-->
+  <!--<li class="list-group-item" *ngFor="let row of padTasks"  > {{padtitle}}- {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}} - {{row.fltrTypId}}</li>-->
+  <!--<li class="list-group-item" *ngFor="let row of adTasks"  > {{adtitle}}- {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}} - {{row.fltrTypId}}</li>-->
+  <!--<li class="list-group-item" *ngFor="let row of raTasks"  >{{ratitle}} - {{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row .fltrId}}- {{row.fltrTypId}}</li>-->
+  <!--<li class="list-group-item" *ngFor="let row of piTasks"  >{{pititle}} -{{row.ldgPrdDescYrNo}} - {{row.tsdNam}} - {{row.tsdId}} -{{row.fltrId}}- {{row.fltrTypId}}</li>-->
+  <!--</ul>-->
+  <!--</div>-->
+  <!--</div>-->
+</div>
+<!-- Manage Task Set Details   -->
+<div class="col-sm-12 boxborder  boxitem   "  >
+  <div class="col-sm-12  boxitem    "  >
+    <div class="col-sm-12  boxitem    "  >
+      <h3>Manage Task Set Details For {{selectedCafeTsd.tsdNam}}</h3>
+      <ul class="nav nav-tabs  boxitem ">
+        <li class="active"><a data-toggle="tab" href="#devisions"> {{ divtitle}} </a></li>
+        <li><a data-toggle="tab" href="#projects"> {{ projtasktitle}} </a></li>
+        <li><a data-toggle="tab" href="#pad"> {{ padtitle}} </a></li>
+        <li><a data-toggle="tab" href="#ad"> {{ adtitle}} </a></li>
+        <li><a data-toggle="tab" href="#ra"> {{ ratitle}} </a></li>
+        <li><a data-toggle="tab" href="#pi"> {{ pititle}} </a></li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;</li>
+
+
+        <li> <button type="button" (click)="savetasks()" class="btn btn-success">Save</button></li>
+      </ul>
+    </div>
+    <div class="col-sm-12 tab-content">
+      <div id="devisions" class="col-sm-12  boxitem boxborder tab-pane fade in active "  >
+        <span class="subtitle">Select {{ divtitle}}:</span>
+        <app-dataselector  [filteredItems]="divisions"  [inassignedItems] ="selecteddivisions" [title1]="divtitle"
+                           [tsdid]="selectedCafeTsd.tsdId" [isproject]=false
+                           (projTasks)="divTasks = $event"  ></app-dataselector>
+      </div>
+      <div  id="projects"  class="col-sm-12   boxitem boxborder tab-pane fade  "  >
+        <span class="subtitle">Select {{ projtasktitle}}:</span>
+        <input id="searchText" #searchText [(ngModel)]="searchtag" (keyup)="onKeyUP(searchText.value)"  placeholder="">
+        <div  [hidden]="!(projects.length) "    >
+          <div class=" table-fix-height2 ">
+            <table class="table table-striped table-hover table-condensed table-bordered ">
+              <tr  *ngFor="let row of projects"  ><td (click)="getTaskSet(row)" > {{row.tsdNam}}</td></tr>
+            </table>
+          </div>
+        </div>
+        <app-dataselector  [filteredItems]="projs" [inassignedItems] ="selectedprojtasks" [title1]="projtasktitle"
+                           [tsdid]="selectedCafeTsd.tsdId"  [isproject]=false
+                           (projTasks)="projtasksTasks = $event"  ></app-dataselector>
+      </div>
+      <div  id="pad"  class="col-sm-12   boxitem boxborder tab-pane fade  "  >
+        <span class="subtitle">Select {{ padtitle}}:</span>
+        <app-dataselector  [filteredItems]="pads" [inassignedItems] ="selectedpads" [title1]="padtitle"
+                           [tsdid]="selectedCafeTsd.tsdId"  [isproject]=false
+                           (projTasks)="padTasks = $event"  ></app-dataselector>
+      </div>
+      <div  id="ad"  class="col-sm-12   boxitem boxborder tab-pane fade  "  >
+        <span class="subtitle">Select {{ adtitle}}:</span>
+        <app-dataselector  [filteredItems]="ads" [inassignedItems] ="selectedads" [title1]="adtitle"
+                           [tsdid]="selectedCafeTsd.tsdId"  [isproject]=false
+                           (projTasks)="adTasks = $event"  ></app-dataselector>
+      </div>
+      <div  id="ra" class="col-sm-12   boxitem boxborder tab-pane fade  "  >
+        <span class="subtitle">Select {{ ratitle}}:</span>
+        <app-dataselector  [filteredItems]="ras" [inassignedItems] ="selectedras" [title1]="ratitle"
+                           [tsdid]="selectedCafeTsd.tsdId"  [isproject]=false
+                           (projTasks)="raTasks = $event"  ></app-dataselector>
+      </div>
+      <div  id="pi" class="col-sm-12   boxitem boxborder tab-pane fade "  >
+        <span class="subtitle">Select {{ pititle}}:</span>
+        <app-dataselector  [filteredItems]="pis"  [inassignedItems] ="selectedpis" [title1]="pititle"
+                           [tsdid]="selectedCafeTsd.tsdId"   [isproject]=false
+                           (projTasks)="piTasks = $event"  ></app-dataselector>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,33 @@
+<div class="col-sm-12    "  >
+  <app-navheader  [titlepage]="pagetitle" [subtitlepage]="subpagetitle"></app-navheader>
+</div>
+<div class="col-sm-12    "  > <p>  &nbsp;&nbsp;&nbsp; </p><p>&nbsp;&nbsp;&nbsp;</p></div>
+<div class="col-sm-12 boxitem boxborder  "  >
+  <h3>  Homes </h3>
+  <ag-grid-angular style="width: 1260px; height: 150px;" class="ag-fresh"
+                   [gridOptions]="statusgridOptions">
+  </ag-grid-angular>
+
+</div>
+<div>
+  <label>Hero name:</label> <input #heroName />
+  <button (click)="add(heroName.value); heroName.value=''">
+    Add
+  </button>
+</div>
+
+<h1 ng-repeat="x in homes"> Home {{x}}</h1>
+<div class="container">
+  <div class="row">
+    <h1 ng-repeat="x in homes">{{x}}</h1>
+    <div class="col-sm-4">
+      <app-homeitem></app-homeitem>
+    </div>
+    <div class="col-sm-4">
+      <app-homeitem></app-homeitem>
+    </div>
+    <div class="col-sm-4">
+      <app-homeitem></app-homeitem>
+    </div>
+  </div>
+</div><br>

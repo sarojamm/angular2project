@@ -1,0 +1,29 @@
+<div class="container-fluid mygreydiv">
+  <nav class="navbar mygreydiv navbar-fixed-top">
+    <div class="navbar-header  ">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/home">{{titlepage}} - {{subtitlepage}}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav   navbar-right">
+        <li> <a href="/myprofile/#/"  ><span class="blacktext">Home</span></a></li>
+        <li><a routerLink="/homes" routerLinkActive="active"> Homes</a></li>
+
+        <li><a routerLink="/address" routerLinkActive="active"> Address</a></li>
+        <li><a routerLink="/taskstatus" routerLinkActive="active">Task Status</a></li>
+        <li><a routerLink="/managetaskset" routerLinkActive="active"> Manage Task Sets</a></li>
+        <li><a target="_blank"
+               href="/ltewebver2/#/reports/dd/elte/c0ammsa/data3.json/30399091/MARKET_CARRIER/false/Structured%20Ad%20Hoc%20Report%20-%20Hourly%20Totals/CARRIER/c0ammsa">High
+          Charts</a></li>
+        <li> <a href="/jqueryproject/"  ><span class="blacktext">jQueryProject</span></a></li>
+        <li >{{userId}}</li>
+        <li ><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+      </ul>
+    </div>
+  </nav>
+</div>

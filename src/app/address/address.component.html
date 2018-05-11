@@ -1,0 +1,40 @@
+
+<div class="col-sm-12    "  >
+  <app-navheader  [titlepage]="pagetitle" [subtitlepage]="subpagetitle"></app-navheader>
+</div>
+<div class="col-sm-12    "  > <p>  &nbsp;&nbsp;&nbsp; </p><p>&nbsp;&nbsp;&nbsp;</p></div>
+<div class="col-sm-12 boxitem boxborder  "  >
+  <h3>  Address </h3>
+  <ag-grid-angular style="width: 1260px; height: 150px;" class="ag-fresh"
+                   [gridOptions]="statusgridOptions"
+                   (rowClicked)="onRowClicked($event)">>
+  </ag-grid-angular>
+
+</div>
+<div>
+
+
+
+  <div>
+    <form  >
+    <table>
+      <tr><td><label>City:</label> <input type="text" name="city"  [(ngModel)]="newAddress.city"  /></td></tr>
+      <tr><td><label>State:</label> <input type="text" name="state"  [(ngModel)]="newAddress.state"  /> </td></tr>
+      <tr><td><label>Street:</label> <input type="text" name="street"  [(ngModel)]="newAddress.street" /></td></tr>
+      <tr><td><label>Country:</label> <input type="text" name="country"  [(ngModel)]="newAddress.country" /></td></tr>
+      <tr><td><label>Zip:</label> <input type="text" name="zip"  [(ngModel)]="newAddress.zip" /></td></tr>
+      <tr><td colspan="2"> <button type="button"
+                                   class="btn btn-primary"
+                                   (click)="saveAddress(newAddress)">Add</button></td></tr>
+    </table>
+    </form>
+
+  </div>
+
+  <!--<label>Hero name:</label> <input #heroName />-->
+  <!--<label>Hero name:</label> <input #heroName />-->
+  <!--<label>Hero name:</label> <input #heroName />-->
+  <!--<button (click)="add(heroName.value); heroName.value=''">-->
+    <!--Add-->
+  <!--</button>-->
+</div>

@@ -1,0 +1,33 @@
+export class Project {
+  ldgPrdDescYrNo :number;
+  projTaskIntrNo :number;
+  projTaskNo :string;
+  projTaskNam:string;
+  projIntrNo :number;
+  projNo:string;
+  wbsLevIdParent :number;
+  wbs1Id :number;
+  wbs2Id :number;
+  orgPadNoTask :number;
+  orgAdNoTask :number;
+  orgNo :number;
+  wbsFundOrgParent :number;
+  perIntrNoRsrcMgr :number;
+  perIntrNoCntc :number;
+  fundCarryoverAmt :number;
+  curFyFundAmt :number;
+  expectedBa :number;
+  expectedYtdCosts :number;
+  xpiredFundAmt :number;
+  padAttr1Id :number;
+  padAttr2Id : number;
+  padAttr3Id:number;
+  padAttr4Id:number;
+  fundChgReason:string;
+  padAttr1Nam:string;
+  padAttr2Nam:string;
+  padAttr3Nam:string;
+  padAttr4Nam:string;
+  jnMsg:string;
+  jnDatetime:string;
+}
